@@ -10,11 +10,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.6.2",
     "ant-design-vue": "1.7.8",
     "core-js": "^3.8.3",
+    "pinia": "^2.0.14",
     "vue": "^2.6.14",
-    "vue-router": "^3.5.1",
-    "vuex": "^3.6.2"
+    "vue-router": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
