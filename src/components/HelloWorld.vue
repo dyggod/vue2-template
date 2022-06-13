@@ -39,6 +39,11 @@ export default {
   props: {
     msg: String,
   },
+  methods: {
+    test() {
+      console.log('test');
+    },
+  },
 };
 </script>
 
