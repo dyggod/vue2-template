@@ -18,19 +18,19 @@ const routes = [
         name: `${routeName}_test`,
         component: () => import('@/views/dashboard/test/index.vue'),
         meta: {
-          icon: ''
-        }
+          icon: '',
+        },
       },
       {
         path: '/dashboard/workplace',
         name: `${routeName}_workplace`,
         component: () => import('@/views/dashboard/workplace/index.vue'),
         meta: {
-          icon: ''
-        }
-      }
-    ]
+          icon: '',
+        },
+      },
+    ],
   },
-]
+];
 
 export default routes;

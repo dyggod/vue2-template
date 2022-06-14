@@ -4,16 +4,23 @@ import { errorPage, constansRoutes } from './base';
 
 Vue.use(VueRouter);
 
-const rootRoutes = [errorPage, ...constansRoutes];
+function createRouterGuards() {
+  // console
+}
+
 const routeModuleList = [];
 
 // 使用 require.context 动态加载modules目录下的路由模块
-const requiredModules = require.context('./modules', false, /\.js$/)
-requiredModules.keys().forEach(fileName => {
-  routeModuleList.push(...(requiredModules(fileName).default || requiredModules(fileName)))
-})
+const requiredModules = require.context('./modules', false, /\.js$/);
+requiredModules.keys().forEach((fileName) => {
+  routeModuleList.push(...(requiredModules(fileName).default || requiredModules(fileName)));
+});
 
-const routes = [
+export const rootRoutes = [errorPage, ...constansRoutes];
+
+export const asyncRoutes = [...routeModuleList];
+
+export const routes = [
   ...rootRoutes,
   ...routeModuleList,
   {
@@ -40,5 +47,11 @@ const routes = [
 const router = new VueRouter({
   routes,
 });
+
+export function setupRouter(app) {
+  app.use(router);
+  // 创建路由守卫
+  createRouterGuards();
+}
 
 export default router;

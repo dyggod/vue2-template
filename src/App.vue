@@ -16,16 +16,16 @@ export default {
         'en-US': {
           title: 'Ant Design',
           description: 'Ant Design is a design language and UI framework for React.',
-        }
-      }
+        },
+      },
     };
   },
   methods: {
     popContainer() {
-      return document.getElementById("popContainer");
+      return document.getElementById('popContainer');
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="less">
