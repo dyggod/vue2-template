@@ -4,15 +4,11 @@
     <h1>
       <a-button @click="login">登录</a-button>
     </h1>
-    <h1 v-if="loginStatus">
-      {{ userInfo.name }}登录了
-    </h1>
+    <h1 v-if="loginStatus">{{ userInfo.name }}登录了</h1>
     <h1>
       <a-button @click="setLanguage('CH')">切换语言</a-button>
     </h1>
-    <h1>
-      现在语言是: {{language}}
-    </h1>
+    <h1>现在语言是: {{ language }}</h1>
   </div>
 </template>
 
