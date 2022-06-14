@@ -1,34 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import { errorPage, constansRoutes } from './base';
+import createRouterGuards from './guard';
+import { routes } from './routes';
 
 Vue.use(VueRouter);
-
-function createRouterGuards() {
-  // console
-}
-
-const routeModuleList = [];
-
-// 使用 require.context 动态加载modules目录下的路由模块
-const requiredModules = require.context('./modules', false, /\.js$/);
-requiredModules.keys().forEach((fileName) => {
-  routeModuleList.push(...(requiredModules(fileName).default || requiredModules(fileName)));
-});
-
-export const rootRoutes = [errorPage, ...constansRoutes];
-
-export const asyncRoutes = [...routeModuleList];
-
-export const routes = [
-  ...rootRoutes,
-  ...routeModuleList,
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
-  },
-];
 
 // 不需要登录拦截的路由配置
 // const loginIgnore = {
@@ -48,10 +23,9 @@ const router = new VueRouter({
   routes,
 });
 
-export function setupRouter(app) {
-  app.use(router);
+export function setupRouter() {
   // 创建路由守卫
-  createRouterGuards();
+  createRouterGuards(router);
 }
 
 export default router;

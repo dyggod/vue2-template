@@ -2,23 +2,18 @@
   <a-layout-sider v-model="collapsedSelf" :trigger="null" collapsible class="side-menu">
     <div class="logo" />
     <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
-      <a-menu-item key="1">
+      <a-menu-item v-for="(item, i) in menus" :key="i">
         <a-icon type="user" />
-        <span>nav 1</span>
-      </a-menu-item>
-      <a-menu-item key="2">
-        <a-icon type="video-camera" />
-        <span>nav 2</span>
-      </a-menu-item>
-      <a-menu-item key="3">
-        <a-icon type="upload" />
-        <span>nav 3</span>
+        <span>{{ item.name }}</span>
       </a-menu-item>
     </a-menu>
   </a-layout-sider>
 </template>
 
 <script>
+import { mapState } from 'pinia';
+import store from '@/store/modules/index';
+
 export default {
   name: 'SideMenu',
   props: {
@@ -27,10 +22,20 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      menus: [],
+    };
+  },
   computed: {
+    ...mapState(store.routesStore, ['getMenus']),
     collapsedSelf() {
       return this.collapsed;
     },
+  },
+  created() {
+    this.menus = this.getMenus;
+    console.log('this.menus: ', this.menus);
   },
 };
 </script>
