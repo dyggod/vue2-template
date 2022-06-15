@@ -11,6 +11,7 @@ const userStore = defineStore('userStore', {
   actions: {
     // 登录
     login() {
+      console.log('login in store');
       this.loginStatus = true;
       this.getUserInfo();
     },

@@ -1,4 +1,4 @@
-import { mapActions } from 'pinia';
+import { pinia } from '@/store';
 // 应用配置
 const appOptions = {
   router: undefined,
@@ -17,10 +17,18 @@ export function setAppOptions(options) {
   appOptions.i18n = i18n;
 }
 
+// 加载路由
 export function loadRoutes() {
   const { store } = appOptions;
-  const actions = { ...mapActions(store.routesStore, ['generateRoutes']) };
-  actions.generateRoutes();
+  const routesStore = store.routesStore(pinia);
+  routesStore.generateRoutes();
+}
+
+// 获取store登录状态
+export function getLoginStatus() {
+  const { store } = appOptions;
+  const userStore = store.userStore(pinia);
+  return userStore.loginStatus;
 }
 
 export function loadRoutesWidthOut(appRouter) {

@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Antd from 'ant-design-vue';
 import App from './App.vue';
-import { pinia } from './store';
 import router, { setupRouter } from './router';
+import { pinia } from './store';
 import store from './store/modules';
 import { setAppOptions } from './router/utils';
 import './theme/index.less';
