@@ -1,5 +1,5 @@
 <template>
-  <a-layout-header style="background: #fff; padding: 0">
+  <a-layout-header class="layout-right-header">
     <a-icon
       class="trigger"
       :type="collapsed ? 'menu-unfold' : 'menu-fold'"
@@ -25,4 +25,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="less" scoped>
+.layout-right-header {
+  background-color: #fff;
+  padding-left: 16px;
+}
+</style>

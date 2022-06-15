@@ -3,6 +3,15 @@ import VueRouter from 'vue-router';
 import createRouterGuards from './guard';
 import { routes } from './routes';
 
+/*
+ * 以下四行代码是为了解决vue-route进入当前所在组件时报错问题：
+ * Uncaught (in promise) NavigationDuplicated: Avoided redundant navigation to current location
+ */
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch((err) => err);
+};
+
 Vue.use(VueRouter);
 
 // 不需要登录拦截的路由配置

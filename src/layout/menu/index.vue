@@ -2,10 +2,18 @@
   <a-layout-sider v-model="collapsedSelf" :trigger="null" collapsible class="side-menu">
     <div class="logo" />
     <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
-      <a-menu-item v-for="(item, i) in menus" :key="i">
-        <a-icon type="user" />
-        <span>{{ item.name }}</span>
-      </a-menu-item>
+      <a-sub-menu v-for="(item, i) in menus" :key="i">
+        <template slot="title">
+          <a-icon type="user" />
+          <span>{{ item.meta.title || '' }}</span>
+        </template>
+        <a-menu-item
+          v-for="(it, k) in item.children"
+          :key="i + '_' +  k"
+          @click="goTargetMenu(it)">
+          <span>{{ it.meta.title || '' }}</span>
+        </a-menu-item>
+      </a-sub-menu>
     </a-menu>
   </a-layout-sider>
 </template>
@@ -35,7 +43,13 @@ export default {
   },
   created() {
     this.menus = this.getMenus;
-    console.log('this.menus: ', this.menus);
+  },
+  methods: {
+    goTargetMenu(item) {
+      this.$router.push({
+        path: item.path,
+      });
+    },
   },
 };
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <a-layout id="components-layout-custom-trigger">
+  <a-layout id="app-layout">
     <SideMenu :collapsed="collapsed"></SideMenu>
-    <a-layout>
+    <a-layout class="layout-right">
       <Header :collapsed="collapsed" @toggle="toggle"></Header>
-      <a-layout-content>
+      <a-layout-content class="layout-right-content">
         <div>
           <Main></Main>
         </div>
@@ -22,7 +22,7 @@ export default {
   components: { SideMenu, Header, Main },
   data() {
     return {
-      collapsed: true,
+      collapsed: false,
     };
   },
   methods: {
@@ -34,11 +34,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.components-layout-custom-trigger .trigger {
-  font-size: 18px;
-  line-height: 64px;
-  padding: 0 24px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
+  @pd-left: 16px;
+
+  .layout-right {
+    // padding-left: 16px;
+  }
+
+  .layout-right-content {
+    padding-left: @pd-left;
+  }
 </style>

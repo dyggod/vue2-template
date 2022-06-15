@@ -1,29 +1,29 @@
 import Layout from '@/layout/index.vue';
 
-const routeName = 'dashboard';
+const routeName = 'system';
 
 const routes = [
   {
-    path: '/dashboard',
+    path: '/system',
     name: routeName,
-    redirect: '/dashboard/test',
+    redirect: '/system/test',
     component: Layout,
     meta: {
-      title: '看板',
+      title: '系统设置',
       icon: '',
     },
     children: [
       {
-        path: '/dashboard/test',
+        path: '/system/about',
         name: `${routeName}_test`,
-        component: () => import('@/views/dashboard/test/index.vue'),
+        component: () => import('@/views/AboutView.vue'),
         meta: {
           title: '测试',
           icon: '',
         },
       },
       {
-        path: '/dashboard/workplace',
+        path: '/system/workplace',
         name: `${routeName}_workplace`,
         component: () => import('@/views/dashboard/workplace/index.vue'),
         meta: {
