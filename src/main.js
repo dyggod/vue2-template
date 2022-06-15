@@ -15,12 +15,12 @@ import './theme/index.less';
  * @param {*} storeModules store模块
  */
 function bootStrap(routerInstance, storeModules) {
-  // 设置应用配置，用以路由处理
-  setAppOptions({ routerInstance, storeModules });
+  // 设置应用配置，关联路由与store的处理
+  setAppOptions({ router: routerInstance, store: storeModules });
   // 启动路由
   setupRouter(routerInstance);
   // 加载 axios 拦截器
-  loadInterceptors(interceptors, { router, storeModules });
+  loadInterceptors(interceptors, { router: routerInstance, store: storeModules });
 }
 
 Vue.config.productionTip = false;

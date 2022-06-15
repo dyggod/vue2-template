@@ -30,15 +30,3 @@ export function getLoginStatus() {
   const userStore = store.userStore(pinia);
   return userStore.loginStatus;
 }
-
-export function loadRoutesWidthOut(appRouter) {
-  console.log('appRouter: ', appRouter);
-}
-
-export function createRouterGuards(router) {
-  router.beforEach((to, from, next) => {
-    console.log('next: ', next);
-    console.log('from: ', from);
-    console.log('to: ', to);
-  });
-}
