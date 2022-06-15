@@ -9,6 +9,7 @@
 <script>
 import { pinia } from '@/store';
 import userStore from '@/store/modules/user';
+import { userService } from '@/api/index';
 
 export default {
   name: 'LoginView',
@@ -19,7 +20,16 @@ export default {
   },
   methods: {
     clickLogin() {
+      userService.login({
+        username: 'admin',
+        password: 'admin',
+      }).then((res) => {
+        console.log('res: ', res);
+      }).catch((error) => {
+        console.log('error: ', error);
+      });
       this.store.login();
+      this.$message.success('登录成功');
       this.$router.push({
         path: '/dashboard',
       });
