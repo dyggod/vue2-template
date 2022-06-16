@@ -28,4 +28,11 @@ module.exports = defineConfig({
       },
     },
   },
+
+  chainWebpack: (config) => {
+    config.resolve.alias // 添加别名
+      .set('@', path.resolve(__dirname, './src'))
+      .set('#', path.resolve(__dirname, './src/components'))
+      .set('@store', path.resolve(__dirname, './src/store'));
+  },
 });

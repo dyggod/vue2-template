@@ -25,7 +25,7 @@ const routes = [
       {
         path: '/system/workplace',
         name: `${routeName}_workplace`,
-        component: () => import('@/views/dashboard/workplace/index.vue'),
+        component: () => import('#/HelloWorld.vue'),
         meta: {
           title: '工作台',
           icon: '',

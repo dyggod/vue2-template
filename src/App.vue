@@ -4,7 +4,7 @@
   </a-config-provider>
 </template>
 <script>
-import { pinia } from '@/store';
+import { pinia } from '@store';
 import settingsStore from '@/store/modules/settings';
 
 export default {
