@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 const settingsStore = defineStore('settingsStore', {
   state: () => ({
     theme: '',
-    language: 'en',
+    language: 'zh-CN',
   }),
   actions: {
     // 切换主题

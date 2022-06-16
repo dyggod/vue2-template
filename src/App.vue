@@ -4,25 +4,41 @@
   </a-config-provider>
 </template>
 <script>
+import { pinia } from '@/store';
+import settingsStore from '@/store/modules/settings';
+
 export default {
   name: 'App',
   data() {
     return {
-      locale: {
-        'zh-CN': {
-          title: 'Ant Design',
-          description: '基于 Ant Design 的 Vue 组件库',
-        },
-        'en-US': {
-          title: 'Ant Design',
-          description: 'Ant Design is a design language and UI framework for React.',
-        },
-      },
+      locale: {},
+      store: settingsStore(pinia),
     };
+  },
+  computed: {
+    language() {
+      return this.store.language;
+    },
   },
   methods: {
     popContainer() {
       return document.getElementById('popContainer');
+    },
+  },
+  watch: {
+    // 监听 language 变化，并设置 i18n locale和 antd 全局配置
+    language(language) {
+      this.$i18n.locale = language;
+      switch (language) {
+        case 'en-US':
+          // eslint-disable-next-line global-require
+          this.locale = require('ant-design-vue/es/locale-provider/en_US').default;
+          break;
+        default:
+          // eslint-disable-next-line global-require
+          this.locale = require('ant-design-vue/es/locale-provider/zh_CN').default;
+          break;
+      }
     },
   },
 };

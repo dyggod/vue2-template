@@ -7,6 +7,7 @@ import router, { setupRouter } from '@/router';
 import { pinia } from '@/store';
 import store from '@/store/modules';
 import { setAppOptions } from '@/router/utils';
+import { initI18n, LOCALES } from '@/locales';
 import './theme/index.less';
 
 /**
@@ -28,10 +29,14 @@ Vue.config.productionTip = false;
 // 挂载antd
 Vue.use(Antd);
 
+// 设置国际化配置
+const i18n = initI18n(LOCALES.zh.value, LOCALES.en.value);
+
 bootStrap(router, store);
 
 new Vue({
   pinia,
   router,
+  i18n,
   render: (h) => h(App),
 }).$mount('#app');
