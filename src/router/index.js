@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import createRouterGuards from './guard';
+import { loadRoutes } from './utils';
 import { routes } from './routes';
 
 /*
@@ -33,6 +34,8 @@ const router = new VueRouter({
 });
 
 export function setupRouter() {
+  // 加载路由
+  loadRoutes();
   // 创建路由守卫
   createRouterGuards(router);
 }

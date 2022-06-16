@@ -1,8 +1,7 @@
-import { loadRoutes, getLoginStatus } from './utils';
+import { getLoginStatus } from './utils';
 
 export default function createRouterGuards(router) {
   router.beforeEach((to, from, next) => {
-    loadRoutes();
     if (getLoginStatus() === false) {
       if (to.path === '/login') {
         next();
