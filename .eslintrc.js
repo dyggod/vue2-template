@@ -12,6 +12,9 @@ module.exports = {
     parser: '@babel/eslint-parser',
   },
   rules: {
+    camelcase: ['error', {
+      properties: 'never',
+    }],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-unused-vars': 'warn',
