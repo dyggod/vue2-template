@@ -1,10 +1,16 @@
 <template>
-  <a-layout-sider v-model="collapsedSelf" :trigger="null" collapsible class="side-menu">
+  <a-layout-sider
+    v-model="collapsedSelf"
+    :trigger="null"
+    collapsible
+    class="side-menu"
+    width="250"
+  >
     <div class="logo" />
     <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
       <a-sub-menu v-for="(item, i) in menus" :key="i">
         <template slot="title">
-          <a-icon type="user" />
+          <a-icon :type="item.meta.icon || 'setting'" />
           <span>{{ item.meta.title || '' }}</span>
         </template>
         <a-menu-item

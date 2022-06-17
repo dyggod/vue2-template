@@ -1,9 +1,10 @@
 import { getLoginStatus } from './utils';
+import { loginIgnore } from './routes';
 
 export default function createRouterGuards(router) {
   router.beforeEach((to, from, next) => {
     if (getLoginStatus() === false) {
-      if (to.path === '/login') {
+      if (loginIgnore.includes(to)) {
         next();
       } else {
         next('/login');

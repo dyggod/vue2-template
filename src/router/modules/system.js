@@ -10,7 +10,8 @@ const routes = [
     component: Layout,
     meta: {
       title: '系统设置',
-      icon: '',
+      icon: 'setting',
+      sort: 1,
     },
     children: [
       {

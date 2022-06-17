@@ -10,7 +10,8 @@ const routes = [
     component: Layout,
     meta: {
       title: '看板',
-      icon: '',
+      icon: 'dashboard',
+      sort: 0,
     },
     children: [
       {
@@ -20,6 +21,7 @@ const routes = [
         meta: {
           title: '测试',
           icon: '',
+          sort: 1,
         },
       },
       {
@@ -29,6 +31,7 @@ const routes = [
         meta: {
           title: '工作台',
           icon: '',
+          sort: 0,
         },
       },
     ],
