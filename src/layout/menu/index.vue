@@ -4,9 +4,14 @@
     :trigger="null"
     collapsible
     class="side-menu"
-    width="250"
+    width="256"
   >
-    <div class="logo" />
+    <div :class="['logo']">
+      <router-link to="/dashboard/workplace">
+        <img src="@/assets/image/logo@4x.png" alt="">
+        <h1>{{$t('menu.systemName')}}</h1>
+      </router-link>
+    </div>
     <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
       <a-sub-menu v-for="(item, i) in menus" :key="i">
         <template slot="title">

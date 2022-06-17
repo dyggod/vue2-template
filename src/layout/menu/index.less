@@ -4,27 +4,26 @@
   z-index: 10;
 
   .logo {
+    height: 64px;
     position: relative;
     line-height: 64px;
     padding-left: 24px;
     -webkit-transition: all .3s;
     transition: all .3s;
     overflow: hidden;
-    height: 32px;
     background: rgba(255, 255, 255, 0.2);
-    margin: 16px;
+    background-color: @layout-trigger-background;
 
-    // background-color: @layout-trigger-background;
     &.light {
       background-color: #fff;
 
       h1 {
-        // color: @primary-color;
+        color: @primary-color;
       }
     }
 
     h1 {
-      // color: @menu-dark-highlight-color;
+      color: @menu-dark-highlight-color;
       font-size: 20px;
       margin: 0 0 0 12px;
       display: inline-block;

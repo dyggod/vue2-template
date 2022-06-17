@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
+const { modifyVars } = require('./src/theme/antd.config');
 
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -14,7 +15,8 @@ module.exports = defineConfig({
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'less',
-      patterns: [path.resolve(__dirname, './src/theme/theme.less')],
+      // 载入 antd 样式文件，并可使用其 less 变量
+      patterns: [path.resolve(__dirname, './src/theme/index.less')],
     },
   },
 
@@ -23,6 +25,7 @@ module.exports = defineConfig({
       less: {
         // 配置less选项
         lessOptions: {
+          modifyVars: modifyVars(),
           javascriptEnabled: true,
         },
       },

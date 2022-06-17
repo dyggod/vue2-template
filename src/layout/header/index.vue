@@ -1,5 +1,5 @@
 <template>
-  <a-layout-header class="layout-right-header">
+  <a-layout-header id="layout-header" class="layout-right-header">
     <div>
       <a-icon
         class="trigger"
@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.layout-right-header {
+#layout-header.layout-right-header {
   background-color: #fff;
   padding-left: 16px;
   display: flex;
