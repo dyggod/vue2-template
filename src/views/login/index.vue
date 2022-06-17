@@ -2,6 +2,7 @@
   <div class="login-page">
     <a-button type="primary" @click="clickLogin">
       登录
+      <div @click="clickLogin">12321</div>
     </a-button>
   </div>
 </template>
@@ -29,7 +30,6 @@ export default {
         console.log('error: ', error);
       });
       this.store.login();
-      this.$message.success('登录成功');
       this.$router.push({
         path: '/dashboard',
       });

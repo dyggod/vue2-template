@@ -7,19 +7,25 @@
         @click="toggleCollapsed"
       />
     </div>
-    <div>
-      <!-- 国际化选项 -->
+    <div class="header-right-content">
+      <!-- 用户 -->
+      <div class="avatar">
+          <HeaderAvatar class="avatar header-item"></HeaderAvatar>
+      </div>
       <div>
-        <a-dropdown class="lang header-item">
-          <div>
-            <a-icon type="global"/> {{ langAlias }}
-          </div>
-          <a-menu @click="val => setLang(val.key)" :selected-keys="[language]"  slot="overlay">
-            <a-menu-item v-for=" (lang) in languageList" :key="lang.value">
-              {{lang.value.toLowerCase() + ' ' + lang.label}}
-            </a-menu-item>
-          </a-menu>
-        </a-dropdown>
+        <!-- 国际化选项 -->
+        <div>
+          <a-dropdown class="lang header-item">
+            <div>
+              <a-icon type="global"/> {{ langAlias }}
+            </div>
+            <a-menu @click="val => setLang(val.key)" :selected-keys="[language]"  slot="overlay">
+              <a-menu-item v-for=" (lang) in languageList" :key="lang.value">
+                {{lang.value.toLowerCase() + ' ' + lang.label}}
+              </a-menu-item>
+            </a-menu>
+          </a-dropdown>
+        </div>
       </div>
     </div>
   </a-layout-header>
@@ -29,9 +35,13 @@
 import { mapState, mapActions } from 'pinia';
 import store from '@/store/modules/index';
 import { localeOptions } from '@/locales';
+import HeaderAvatar from './HeaderAvatar.vue';
 
 export default {
   name: 'LayoutHeader',
+  components: {
+    HeaderAvatar,
+  },
   props: {
     collapsed: {
       type: Boolean,
@@ -62,14 +72,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-#layout-header.layout-right-header {
-  background-color: #fff;
-  padding-left: 16px;
-  display: flex;
-  justify-content: space-between;
-
-  .header-item {
-    padding: 0 12px;
-  }
-}
+@import './index.less';
 </style>

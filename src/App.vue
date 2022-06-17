@@ -6,6 +6,7 @@
 <script>
 import { pinia } from '@store';
 import settingsStore from '@/store/modules/settings';
+import userStore from '@/store/modules/user';
 
 export default {
   name: 'App',
@@ -13,11 +14,15 @@ export default {
     return {
       locale: {},
       store: settingsStore(pinia),
+      userStore: userStore(pinia),
     };
   },
   computed: {
     language() {
       return this.store.language;
+    },
+    loginStatus() {
+      return this.userStore.loginStatus;
     },
   },
   methods: {
@@ -38,6 +43,17 @@ export default {
           // eslint-disable-next-line global-require
           this.locale = require('ant-design-vue/es/locale-provider/zh_CN').default;
           break;
+      }
+    },
+    // 监听 loginStatus 变化
+    loginStatus(loginStatus) {
+      if (loginStatus) {
+        this.$message.success('登录成功');
+      } else {
+        this.$message.error(this.$t('app.logout.msg'));
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       }
     },
   },
