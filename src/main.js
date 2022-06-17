@@ -15,13 +15,17 @@ import './theme/index.less';
  * @param {*} routerInstance 路由实例
  * @param {*} storeModules store模块
  */
-function bootStrap(routerInstance, storeModules) {
+function bootStrap(routerInstance, storeModules, message) {
   // 设置应用配置，关联路由与store的处理
   setAppOptions({ router: routerInstance, store: storeModules });
   // 启动路由
   setupRouter(routerInstance);
   // 加载 axios 拦截器
-  loadInterceptors(interceptors, { router: routerInstance, store: storeModules });
+  loadInterceptors(interceptors, {
+    router: routerInstance,
+    store: storeModules,
+    message,
+  });
 }
 
 Vue.config.productionTip = false;
@@ -32,7 +36,7 @@ Vue.use(Antd);
 // 设置国际化配置
 const i18n = initI18n(LOCALES.zh.value, LOCALES.en.value);
 
-bootStrap(router, store);
+bootStrap(router, store, Vue.prototype.$message);
 
 new Vue({
   pinia,
