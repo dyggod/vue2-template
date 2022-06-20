@@ -8,6 +8,7 @@ import { pinia } from '@/store';
 import store from '@/store/modules';
 import { setAppOptions } from '@/router/utils';
 import { initI18n, LOCALES } from '@/locales';
+import './utils/rem';
 import './theme/index.less';
 
 /**
