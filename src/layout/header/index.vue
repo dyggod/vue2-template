@@ -1,8 +1,7 @@
 <template>
   <a-layout-header id="layout-header" class="layout-right-header">
-    <div>
+    <div class="trigger">
       <a-icon
-        class="trigger"
         :type="collapsed ? 'menu-unfold' : 'menu-fold'"
         @click="toggleCollapsed"
       />
