@@ -1,4 +1,7 @@
 <template>
+<div>
+ <slot name="headbread"></slot>
+  <router-view>
   <router-view class="layout-main">
     <template #default="{ Component, route }">
       <transition>
@@ -6,9 +9,11 @@
       </transition>
     </template>
   </router-view>
+</div>
 </template>
 
 <script>
+
 export default {
   name: 'LayoutMain',
 };
