@@ -4,7 +4,7 @@
     <a-layout class="layout-right">
       <Header :collapsed="collapsed" @toggle="toggle"></Header>
       <a-layout-content class="layout-right-content">
-        <div>
+        <div id="layout-main">
           <Main></Main>
         </div>
       </a-layout-content>
@@ -34,13 +34,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  @pd-left: 16px;
-
-  .layout-right {
-    // padding-left: 16px;
-  }
-
-  .layout-right-content {
-    padding-left: @pd-left;
-  }
+@import './index.less';
 </style>

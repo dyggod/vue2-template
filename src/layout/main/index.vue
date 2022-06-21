@@ -1,5 +1,5 @@
 <template>
-  <router-view>
+  <router-view class="layout-main">
     <template #default="{ Component, route }">
       <transition>
         <component :is="Component" :key="route.fullPath" />
@@ -14,6 +14,5 @@ export default {
 };
 </script>
 
-<style>
-
+<style lang="less" scoped>
 </style>

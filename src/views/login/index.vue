@@ -40,6 +40,10 @@ export default {
 <style lang="less" scoped>
 .login-page {
   text-align: center;
-  margin-top: 100px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  place-content: center center;
 }
 </style>

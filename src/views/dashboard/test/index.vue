@@ -5,6 +5,7 @@
       rem 测试
       <div class="font">字号16px</div>
       <div class="wh">宽度100px，高度100px</div>
+      <div class="height-test">高度测试</div>
     </div>
   </div>
 </template>
@@ -25,6 +26,11 @@ export default {
     background-color: red;
     height: 100px;
     width: 100px;
+  }
+
+  .height-test {
+    height: 500px;
+    background-color: aqua;
   }
 }
 </style>
