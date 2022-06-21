@@ -1,7 +1,6 @@
 <template>
 <div>
- <slot name="headbread"></slot>
-  <router-view>
+  <slot name="headbread"></slot>
   <router-view class="layout-main">
     <template #default="{ Component, route }">
       <transition>
