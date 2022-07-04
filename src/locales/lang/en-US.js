@@ -3,5 +3,5 @@ export default {
   'app.login.fail': 'login fail',
   'app.logout.msg': 'about to log out',
   'menu.test': 'MenuTest',
-  'menu.systemName': 'Password Service',
+  'menu.systemName': 'Vue Admin',
 };

@@ -8,7 +8,7 @@
   >
     <div :class="['logo']">
       <router-link to="/dashboard/workplace">
-        <img src="@/assets/image/logo@4x.png" alt="">
+        <img src="@/assets/image/logo.png" alt="">
         <h1>{{$t('menu.systemName')}}</h1>
       </router-link>
     </div>

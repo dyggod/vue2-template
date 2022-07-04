@@ -3,5 +3,5 @@ export default {
   'app.login.fail': '登录失败',
   'app.logout.msg': '即将退出账号',
   'menu.test': '菜单测试',
-  'menu.systemName': '密码服务平台',
+  'menu.systemName': '后台管理系统',
 };
