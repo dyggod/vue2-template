@@ -9,7 +9,7 @@
 <script>
 import { pinia } from '@/store';
 import userStore from '@/store/modules/user';
-import { userService } from '@/api/index';
+import { userService, RES_CODE } from '@/api/index';
 
 export default {
   name: 'LoginView',
@@ -20,17 +20,16 @@ export default {
   },
   methods: {
     clickLogin() {
-      userService.login({
-        username: 'admin',
-        password: 'admin',
-      }).then((res) => {
-        console.log('res: ', res);
+      userService.login('admin', 'admin').then((res) => {
+        const { data } = res;
+        if (res.code === RES_CODE.SUCCESS) {
+          this.store.login(data.token);
+          this.$router.push({
+            path: '/home',
+          });
+        }
       }).catch((error) => {
-        console.log('error: ', error);
-      });
-      this.store.login();
-      this.$router.push({
-        path: '/dashboard',
+        this.$message.error(error.message);
       });
     },
   },

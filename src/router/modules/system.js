@@ -12,6 +12,7 @@ const routes = [
       title: '系统设置',
       icon: 'setting',
       sort: 1,
+      permission: ['system:view'],
     },
     children: [
       {

@@ -12,6 +12,7 @@ const routes = [
       title: '看板',
       icon: 'dashboard',
       sort: 0,
+      permission: ['dashboard:view'],
     },
     children: [
       {

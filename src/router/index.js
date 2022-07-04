@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import createRouterGuards from './guard';
-import { loadRoutes } from './utils';
-import { routes } from './routes';
+import { rootRoutes } from './routes';
 
 /*
  * 以下四行代码是为了解决vue-route进入当前所在组件时报错问题：
@@ -30,12 +29,11 @@ Vue.use(VueRouter);
 // };
 
 const router = new VueRouter({
-  routes,
+  routes: [...rootRoutes],
+  mode: 'hash',
 });
 
 export function setupRouter() {
-  // 加载路由
-  loadRoutes();
   // 创建路由守卫
   createRouterGuards(router);
 }

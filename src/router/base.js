@@ -1,3 +1,5 @@
+import Layout from '@/layout/index.vue';
+
 export const errorPage = {
   path: '*',
   name: '404',
@@ -13,6 +15,22 @@ export const constansRoutes = [
   {
     path: '/',
     name: 'root',
-    redirect: '/dashboard/test',
+    redirect: '/home',
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: Layout,
+    redirect: '/home/index',
+    children: [
+      {
+        path: '/home/index',
+        name: 'home_index',
+        component: () => import('@/views/home/index.vue'),
+        meta: {
+          title: '首页',
+        },
+      },
+    ],
   },
 ];

@@ -1,4 +1,12 @@
-import Cookie from 'js-cookie';
+import { getToken, removeToken } from './local-storage';
+import {
+  RES_CODE, AUTH_TYPE, headerAuthName, HTTP_STATUS,
+} from './request';
+
+// 请求白名单
+const whiteList = [
+  '/auth/login',
+];
 
 const reqCommon = {
   /**
@@ -8,13 +16,14 @@ const reqCommon = {
    * @returns {*}
    */
   onFulfilled(config, options) {
-    const { message } = options;
-    const { url, xsrfCookieName } = config;
-    if (url.indexOf('login') === -1 && xsrfCookieName && !Cookie.get(xsrfCookieName)) {
-      message.warning('认证 token 已过期，请重新登录');
+    const { url, headers } = config;
+    if (!whiteList.includes(url)) {
+      // header 中添加认证token
+      headers[headerAuthName] = `${AUTH_TYPE.BEARER} ${getToken()}`;
     }
     return config;
   },
+
   /**
    * 请求出错的拦截器
    * @param error 错误对象
@@ -28,11 +37,27 @@ const reqCommon = {
   },
 };
 
-// TODO: 待完善响应拦截器，操作 token
 const resCommon = {
-  // 在响应数据之前执行
   onFulfilled(response, options) {
-    return response;
+    const { message } = options;
+    if (response.status !== HTTP_STATUS.SUCCESS) {
+      message.error('请求错误');
+    }
+    // token过期，重新登录
+    if (response.data.code === RES_CODE.AUTHORIZATION_EXPIRED) {
+      removeToken();
+      message.error('登录过期，请重新登录');
+      window.location.reload();
+    }
+    return response.data;
+  },
+
+  onNoApiAuth(response, options) {
+    const { message } = options;
+    if (response.data.code === RES_CODE.UNAUTHORIZED) {
+      message.error('操作权限不足');
+    }
+    return Promise.reject(response.data.msg);
   },
 
   /**
@@ -43,7 +68,6 @@ const resCommon = {
    */
   onRejected(error, options) {
     const { message } = options;
-    const { response } = error;
     message.error('响应出错');
     return Promise.reject(error);
   },

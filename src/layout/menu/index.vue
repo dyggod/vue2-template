@@ -12,8 +12,12 @@
         <h1>{{$t('menu.systemName')}}</h1>
       </router-link>
     </div>
-    <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
-      <a-sub-menu v-for="(item, i) in menus" :key="i">
+    <a-menu theme="dark" mode="inline" :default-selected-keys="['0']">
+      <a-menu-item key="0" @click="$router.push('/')">
+        <a-icon type="home" />
+        <span>首页</span>
+      </a-menu-item>
+      <a-sub-menu v-for="(item, i) in menus" :key="String(i + 1)">
         <template slot="title">
           <a-icon :type="item.meta.icon || 'setting'" />
           <span>{{ item.meta.title || '' }}</span>

@@ -10,6 +10,7 @@
  * @param name 路由名称, 不能重名 [必须]
  * @param redirect 重定向地址, 访问这个路由时, 自定进行重定向 [可选]
  * @param meta 路由元信息（路由附带扩展信息）
+ * @param meta.permission 进入该路由所需的权限列表 [可选]，如果未给该字段则表示所有用户均可进入
  * @param meta.disabled 禁用整个菜单 [可选]
  * @param meta.title 菜单名称 [可选]
  * @param meta.icon 菜单图标 [可选]

@@ -4,6 +4,9 @@ import Cookie from 'js-cookie';
 // 跨域认证信息 header 名
 const xsrfHeaderName = 'Authorization_Token';
 
+// 请求头中存放认证信息的字段
+export const headerAuthName = 'Authorization';
+
 // 请求配置
 axios.defaults.baseURL = process.env.VUE_APP_API_BASE_URL;
 axios.defaults.timeout = 5000; // 超时时间
@@ -11,18 +14,38 @@ axios.defaults.withCredentials = true; // 跨域认证
 axios.defaults.xsrfHeaderName = xsrfHeaderName;
 axios.defaults.xsrfCookieName = xsrfHeaderName;
 
+//  HTTP状态码
+export const HTTP_STATUS = {
+  SUCCESS: 200,
+  AUTHORIZATION_REQUIRED: 401,
+  SERVICE_FAILURE: 500,
+};
+
 // 认证类型
-const AUTH_TYPE = {
+export const AUTH_TYPE = {
   BEARER: 'Bearer',
   BASIC: 'basic',
-  AUTH1: 'auth1',
-  AUTH2: 'auth2',
+  AUTHONE: 'AUTH1',
+  AUTHTWO: 'auth2',
 };
 
 // HTTP 请求方法
-const METHOD = {
+export const METHOD = {
   GET: 'get',
   POST: 'post',
+  DELETE: 'delete',
+  BATCHDELETE: 'batchDelete',
+  PUT: 'put',
+  PATCH: 'patch',
+};
+
+// 返回数据状态码
+export const RES_CODE = {
+  SUCCESS: 200, // 成功
+  PARAMS_ERROR: 400, // 参数错误
+  UNAUTHORIZED: 401, // 未授权
+  AUTHORIZATION_EXPIRED: 400100, // 认证过期
+  AUTHORIZATION_EXPIRING: 400200, // 认证即将过期
 };
 
 /**
@@ -38,6 +61,19 @@ async function request(url, method, params, config) {
       return axios.get(url, { params, ...config });
     case METHOD.POST:
       return axios.post(url, params, config);
+    case METHOD.PUT:
+      return axios.put(url, params, config);
+    case METHOD.PATCH:
+      return axios.patch(url, params, config);
+    case METHOD.DELETE:
+      return axios.delete(url, params, config);
+    case METHOD.BATCHDELETE:
+      return axios({
+        method: 'delete',
+        url,
+        data: params,
+        ...config,
+      });
     default:
       return axios.get(url, { params, ...config });
   }
@@ -54,8 +90,8 @@ function setAuthorization(auth, authType = AUTH_TYPE.BEARER) {
       Cookie.set(xsrfHeaderName, `Bearer ${auth.token}`, { expires: auth.expireAt });
       break;
     case AUTH_TYPE.BASIC:
-    case AUTH_TYPE.AUTH1:
-    case AUTH_TYPE.AUTH2:
+    case AUTH_TYPE.AUTHONE:
+    case AUTH_TYPE.AUTHTWO:
     default:
       break;
   }
@@ -71,8 +107,8 @@ function removeAuthorization(authType = AUTH_TYPE.BEARER) {
       Cookie.remove(xsrfHeaderName);
       break;
     case AUTH_TYPE.BASIC:
-    case AUTH_TYPE.AUTH1:
-    case AUTH_TYPE.AUTH2:
+    case AUTH_TYPE.AUTHONE:
+    case AUTH_TYPE.AUTHTWO:
     default:
       break;
   }
@@ -91,8 +127,8 @@ function checkAuthorization(authType = AUTH_TYPE.BEARER) {
       }
       break;
     case AUTH_TYPE.BASIC:
-    case AUTH_TYPE.AUTH1:
-    case AUTH_TYPE.AUTH2:
+    case AUTH_TYPE.AUTHONE:
+    case AUTH_TYPE.AUTHTWO:
     default:
       break;
   }
@@ -138,12 +174,23 @@ function loadInterceptors(interceptors, options) {
   });
 }
 
+/**
+ * 将对象的每个属性值添加前缀
+ * @param {object} urlObj
+ * @param {string} prefix
+ */
+function addPrefix(urlObj, prefix) {
+  Object.keys(urlObj).forEach((key) => {
+    // eslint-disable-next-line no-param-reassign
+    urlObj[key] = `${prefix}${urlObj[key]}`;
+  });
+}
+
 export {
-  METHOD,
-  AUTH_TYPE,
   request,
   setAuthorization,
   removeAuthorization,
   checkAuthorization,
   loadInterceptors,
+  addPrefix,
 };
