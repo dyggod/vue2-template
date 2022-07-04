@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/dyggod/vue2-template/compare/v0.3.0...v0.4.0) (2022-07-04)
+
+
+### ✨ Features | 新功能
+
+* 添加路由权限设计 ([6ab1071](https://github.com/dyggod/vue2-template/commit/6ab10719b73866d1da375ad53de9f1b9f0e96c8b))
+* 添加mockjs及用户模拟接口 ([d742abc](https://github.com/dyggod/vue2-template/commit/d742abc615f35bff7c43d9c9f8bdc15c6ebdd9f5))
+
+
+### ✏️ Documentation | 文档
+
+* 添加versionrc.js ([acdf528](https://github.com/dyggod/vue2-template/commit/acdf528d139c44e6ecacf775bd319340fc566461))
+
 ## [0.3.0](https://github.com/dyggod/vue2-template/compare/v0.2.0...v0.3.0) (2022-07-04)
 
 
