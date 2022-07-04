@@ -19,6 +19,23 @@ All notable changes to this project will be documented in this file. See [standa
 * error ([d7809b2](https://github.com/dyggod/vue2-template/commit/d7809b2c06e7b786c013f56e1a6d7085e5e6e219))
 * eslint rule ([491fe64](https://github.com/dyggod/vue2-template/commit/491fe641b3fefcbd4df87c60b846d82f70fd23c6))
 
+## [0.3.0](https://github.com/dyggod/vue2-template/compare/v0.2.0...v0.3.0) (2022-07-04)
+
+
+### Features
+
+* 布局高度固定 ([e92c6fa](https://github.com/dyggod/vue2-template/commit/e92c6fa3d43127c5d776b082b2a27fb94ff413e6))
+* 添加用户设置 ([d93153c](https://github.com/dyggod/vue2-template/commit/d93153cf2652e2c8889f1f7dc26cb85b3be6e201))
+* 添加rem配置 ([42187c4](https://github.com/dyggod/vue2-template/commit/42187c41f6eb8643443eaf1331569ebb7d2bfe83))
+* 新增了头部面包屑 ([#2](https://github.com/dyggod/vue2-template/issues/2)) ([16ca4ce](https://github.com/dyggod/vue2-template/commit/16ca4ce008de46981e5062b3bac1580fb2ad1552))
+
+
+### Bug Fixes
+
+* error ([56fe8fb](https://github.com/dyggod/vue2-template/commit/56fe8fbde4e9608c5ac6bbb25642213f33fd742c))
+* error ([d7809b2](https://github.com/dyggod/vue2-template/commit/d7809b2c06e7b786c013f56e1a6d7085e5e6e219))
+* eslint rule ([491fe64](https://github.com/dyggod/vue2-template/commit/491fe641b3fefcbd4df87c60b846d82f70fd23c6))
+
 ## 0.2.0 (2022-07-04)
 
 
