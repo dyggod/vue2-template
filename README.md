@@ -4,7 +4,7 @@
 
 ## 技术栈简介
 
-vue-cli + vue2 + ant-design-pro-vue + eslint + pinia + axios + jest
+vue-cli + vue2 + ant-design-vue@1 + eslint + pinia + axios + jest
 
 ## 管理工具
 
@@ -49,3 +49,35 @@ yarn lint
 ## 提交规范
 
 本项目配置了 commitlint，并采用 commit 的常规规范扩展。请参考[config-conventional](https://www.npmjs.com/package/@commitlint/config-conventional)。
+
+同时配置了提交工具[commitizen](https://www.npmjs.com/package/commitizen)。
+
+提交时统一使用命令：
+
+```
+yarn commit
+
+// 运行后出现以下问题
+?Select the type of change that you're committing                  // 选择你的提交类型，请参考commit规范说明
+?What is the scope of this change (e.g. component or file name)    // 输入你的修改范围，文件名
+?Write a short, imperative tense description of the change         // 输入简述
+?Provide a longer description of the change                        // 输入详细描述
+?Are there any breaking changes                                    // 是否是重大破坏性修改，通常输入No
+?Does this change affect any open issues                           // 是否有影响的issues
+```
+
+## 版本发布
+
+**_注意：只有项目管理者有权限发布版本_**
+
+自动升级版本并更改 changelog:
+
+```
+yarn release
+```
+
+指定版本:
+
+```
+yarn release -- --release-as  xx.xx.xx
+```
