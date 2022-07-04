@@ -10,7 +10,7 @@ import { setAppOptions } from '@/router/utils';
 import { initI18n, LOCALES } from '@/locales';
 import './utils/rem';
 import './theme/index.less';
-
+import '@/mock';
 /**
  * 引导程序配置启动
  * @param {*} routerInstance 路由实例
