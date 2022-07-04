@@ -15,6 +15,7 @@ module.exports = {
     camelcase: ['error', {
       properties: 'never',
     }],
+    'vuejs-accessibility/click-events-have-key-events': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-unused-vars': 'warn',

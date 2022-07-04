@@ -29,7 +29,6 @@ export default {
         console.log('error: ', error);
       });
       this.store.login();
-      this.$message.success('登录成功');
       this.$router.push({
         path: '/dashboard',
       });
@@ -41,6 +40,10 @@ export default {
 <style lang="less" scoped>
 .login-page {
   text-align: center;
-  margin-top: 100px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  place-content: center center;
 }
 </style>

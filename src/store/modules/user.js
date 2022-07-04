@@ -22,6 +22,15 @@ const userStore = defineStore('userStore', {
         avatar: '',
       };
     },
+
+    // 退出登录
+    logout() {
+      this.loginStatus = false;
+      this.userInfo = {
+        name: '',
+        avatar: '',
+      };
+    },
   },
 });
 

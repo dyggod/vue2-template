@@ -1,19 +1,22 @@
 <template>
-  <router-view>
+<div>
+  <slot name="headbread"></slot>
+  <router-view class="layout-main">
     <template #default="{ Component, route }">
       <transition>
         <component :is="Component" :key="route.fullPath" />
       </transition>
     </template>
   </router-view>
+</div>
 </template>
 
 <script>
+
 export default {
   name: 'LayoutMain',
 };
 </script>
 
-<style>
-
+<style lang="less" scoped>
 </style>

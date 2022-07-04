@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service');
 const path = require('path');
+const pxtorem = require('postcss-pxtorem');
 const { modifyVars } = require('./src/theme/antd.config');
 
 module.exports = defineConfig({
@@ -27,6 +28,19 @@ module.exports = defineConfig({
         lessOptions: {
           modifyVars: modifyVars(),
           javascriptEnabled: true,
+        },
+      },
+      postcss: {
+        postcssOptions: {
+          plugins: [
+            pxtorem({
+              rootValue: 16,
+              propList: ['*', '!font-size'],
+              selectorBlackList: ['ant-'],
+              exclude: /(node_module)/,
+              minPixelValue: 1,
+            }),
+          ],
         },
       },
     },
