@@ -8,9 +8,11 @@ import { pinia } from '@/store';
 import store from '@/store/modules';
 import { setAppOptions } from '@/router/utils';
 import { initI18n, LOCALES } from '@/locales';
+import registerDirective from '@/directive';
+import '@/mock';
 import './utils/rem';
 import './theme/index.less';
-import '@/mock';
+
 /**
  * 引导程序配置启动
  * @param {*} routerInstance 路由实例
@@ -33,6 +35,9 @@ Vue.config.productionTip = false;
 
 // 挂载antd
 Vue.use(Antd);
+
+// 注册自定义指令
+registerDirective(Vue);
 
 // 设置国际化配置
 const i18n = initI18n(LOCALES.zh.value, LOCALES.en.value);
