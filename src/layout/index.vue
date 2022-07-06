@@ -3,11 +3,11 @@
     <SideMenu :collapsed="collapsed"></SideMenu>
     <a-layout class="layout-right">
       <Header :collapsed="collapsed" @toggle="toggle"></Header>
+      <HeaderBread :levelList="breadcrumb"/>
       <a-layout-content class="layout-right-content">
         <div>
           <Main>
-            <template #headbread>
-              <HeaderBread :levelList="breadcrumb"/>
+            <template #extents>
             </template>
           </Main>
         </div>
@@ -20,7 +20,7 @@
 import SideMenu from './menu/index.vue';
 import Header from './header/index.vue';
 import Main from './main/index.vue';
-import HeaderBread from './main/HeaderBread.vue';
+import HeaderBread from './breadcrumb/index.vue';
 
 export default {
   name: 'LayoutPage',
