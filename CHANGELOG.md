@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/dyggod/vue2-template/compare/v0.4.0...v0.4.1) (2022-07-06)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* remove ([c217f3c](https://github.com/dyggod/vue2-template/commit/c217f3c188f31d0f95d5c120a0a62f7819190100))
+
+
+### ✨ Features | 新功能
+
+* **breadcrumb:** 优化面包屑 ([4a5cdc2](https://github.com/dyggod/vue2-template/commit/4a5cdc215f19c9ae1417ee0a5ebf6f7f9940c8ea))
+* **directive:** 添加自定义指令 ([825e845](https://github.com/dyggod/vue2-template/commit/825e8456a3d6bf6579a0dfced35ececb1d8cf56e))
+
 ## [0.4.0](https://github.com/dyggod/vue2-template/compare/v0.3.0...v0.4.0) (2022-07-04)
 
 
