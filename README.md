@@ -1,10 +1,16 @@
-# vue2-framework
+# vue2-template
 
 本项目为密码服务平台前端项目，当前仅用作搭建框架使用，暂不进行业务开发。等待项目启动后，迁移仓库至开发小组所属管理仓库下。
 
 ## 技术栈简介
 
-vue-cli + vue2 + ant-design-vue@1 + eslint + pinia + axios + jest
+vue-cli + vue2 + ant-design-vue@1 + pinia + axios + jest。
+
+同时项目使用 [commitizen](https://www.npmjs.com/package/commitizen)、[standard-version](https://www.npmjs.com/package/standard-version)、[commitlint](https://commitlint.js.org/#/) 做提交和版本管理。
+
+使用 eslint + airbnb 做代码风格约束。
+
+使用 [mockjs](http://mockjs.com/) 做 mock 数据。
 
 ## 管理工具
 
