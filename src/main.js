@@ -12,6 +12,7 @@ import registerDirective from '@/directive';
 import '@/mock';
 import './utils/rem';
 import './theme/index.less';
+import '@/plugins';
 
 /**
  * 引导程序配置启动
